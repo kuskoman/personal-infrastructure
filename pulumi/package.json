@@ -1,6 +1,6 @@
 {
   "name": "surdej-infrastructure",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "version": "1.0.0",
   "description": "Infrastructure for personal projects manager using Pulumi",
   "repository": "https://github.com/kuskoman/personal-infrstructure.git",
@@ -13,6 +13,7 @@
   "dependencies": {
     "@pulumi/cloudflare": "^4.15.0",
     "@pulumi/digitalocean": "^4.0.0",
+    "@pulumi/kubernetes": "^3.23.1",
     "@pulumi/pulumi": "^3.0.0",
     "dotenv": "^16.0.3"
   }
