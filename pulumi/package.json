@@ -1,0 +1,19 @@
+{
+  "name": "surdej-infrastructure",
+  "main": "index.ts",
+  "version": "1.0.0",
+  "description": "Infrastructure for personal projects manager using Pulumi",
+  "repository": "https://github.com/kuskoman/personal-infrstructure.git",
+  "author": "Jakub Surdej <kubasurdej@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^18.11.18"
+  },
+  "dependencies": {
+    "@pulumi/cloudflare": "^4.15.0",
+    "@pulumi/digitalocean": "^4.0.0",
+    "@pulumi/pulumi": "^3.0.0",
+    "dotenv": "^16.0.3"
+  }
+}

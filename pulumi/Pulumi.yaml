@@ -1,0 +1,3 @@
+name: surdej-infrastructure
+runtime: nodejs
+description: Infrastructure for personal projects manager using Pulumi
