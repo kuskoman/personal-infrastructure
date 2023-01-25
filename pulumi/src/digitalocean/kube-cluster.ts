@@ -3,7 +3,7 @@ import * as digitalocean from "@pulumi/digitalocean";
 const KUBERNETES_VERSION = "1.25.4-do.0";
 const DROPLET_SIZE = digitalocean.DropletSlug.DropletS1VCPU2GB;
 
-const cluster = new digitalocean.KubernetesCluster("main-cluster", {
+export const cluster = new digitalocean.KubernetesCluster("main-cluster", {
   region: digitalocean.Region.AMS3,
   version: KUBERNETES_VERSION,
   nodePool: {
@@ -13,6 +13,7 @@ const cluster = new digitalocean.KubernetesCluster("main-cluster", {
     maxNodes: 3,
     autoScale: true,
   },
+  autoUpgrade: false,
 });
 
 export const kubeconfig = cluster.kubeConfigs[0]!.rawConfig;

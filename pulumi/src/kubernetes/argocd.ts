@@ -1,4 +1,5 @@
 import * as kubernetes from "@pulumi/kubernetes";
+import { cluster } from "../digitalocean";
 import { provider } from "./provider";
 
 const namespaceName = "argocd";
@@ -24,9 +25,5 @@ const argocd = new kubernetes.helm.v3.Chart(
       },
     },
   },
-  { provider }
+  { provider, dependsOn: [cluster] }
 );
-
-export const url = argocd
-  .getResourceProperty("v1/Service", `${namespaceName}/argocd-server`, "status")
-  .apply((status) => status.loadBalancer.ingress[0].hostname);
