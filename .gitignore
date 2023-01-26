@@ -112,4 +112,5 @@ secret.tfvars
 
 # State files
 *.tfstate
+*.tfstate.*
 *.lock.info

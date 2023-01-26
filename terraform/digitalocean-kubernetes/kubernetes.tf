@@ -11,3 +11,7 @@ resource "digitalocean_kubernetes_cluster" "main" {
     max_nodes  = 5
   }
 }
+
+output "kubeconfig" {
+  value = digitalocean_kubernetes_cluster.main.kube_config
+}
