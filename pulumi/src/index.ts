@@ -1,2 +1,0 @@
-import "./digitalocean";
-import "./kubernetes";

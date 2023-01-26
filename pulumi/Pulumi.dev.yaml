@@ -1,5 +1,0 @@
-encryptionsalt: v1:PmgIjROvE4U=:v1:H79EsBQ8FXAo4fv+:GGhQk9Vno/KJhk+bQ5jYdVnSi83N1A==
-config:
-  digitalocean:token:
-    secure: v1:PTRDGfcHHD7jxqDp:lcH5Di2d1GBRX5PkwN4c1Jwd6JEOYLzdZ47Q9w3cz7WLMbm3aLhej4gDDKEZN9HuTkA+T8Aq/Oph4GJeazaRH6YcqQtk3TcHnn/dTTfqhkFsj4AG9yNq
-  surdej-infrastructure:main_domain: surdej.me

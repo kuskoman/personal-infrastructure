@@ -70,7 +70,8 @@ typings/
 
 # dotenv environment variables file
 .env
-.env.test
+.env.*
+!.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -102,3 +103,13 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Terraform files
+.terraform
+
+# Secret tfvars
+secret.tfvars
+
+# State files
+*.tfstate
+*.lock.info
