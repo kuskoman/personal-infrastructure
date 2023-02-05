@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: flashbot
+  namespace: argocd
+  targetNamespace: flashbot
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: flashbot
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/kuskoman/FlashBot.git
+    targetRevision: HEAD
+    path: chart
+    helm:
+      releaseName: flashbot
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: flashbot
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
