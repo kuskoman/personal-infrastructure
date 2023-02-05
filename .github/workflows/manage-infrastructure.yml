@@ -45,11 +45,13 @@ jobs:
         run: terraform apply -auto-approve -input=false
         working-directory: terraform
 
-  set-kubeconfig:
-    name: "Set Kubeconfig"
-    runs-on: ubuntu-latest
+  # todo: add job for setting kubeconfig
+
+  argocd:
     needs:
       - terraform
+
+    runs-on: ubuntu-latest
     environment: production
 
     defaults:
@@ -59,19 +61,3 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
-        with:
-          tf_actions_working_dir: "terraform"
-          cli_config_credentials_token: ${{ secrets.TERRAFORM_CLOUD_TOKEN }}
-
-      - name: Terraform Init
-        run: terraform init
-        working-directory: terraform
-
-      - name: Save kubeconfig
-        working-directory: terraform
-        env:
-          GH_TOKEN: ${{ env.GH_PAT }}
-        run: SECRET_BODY=$(terraform output kubeconfig | grep -V EOT) gh secret set KUBECONFIG -b "$SECRET_BODY"
