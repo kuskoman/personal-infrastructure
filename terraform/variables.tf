@@ -5,5 +5,5 @@ variable "main_domain" {
 
 variable "do_token" {
   description = "DigitalOcean API Token"
-  type = string
+  type        = string
 }
