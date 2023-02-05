@@ -17,3 +17,13 @@ variable "terraform_cloud_workspace" {
   description = "Terraform Cloud workspace name"
   type        = string
 }
+
+variable "cloudflare_api_token" {
+  description = "Cloudflare API Token"
+  type        = string
+}
+
+variable "ingress_lb_ip" {
+  description = "IP address of the ingress load balancer"
+  type        = string
+}

@@ -15,3 +15,4 @@ resource "digitalocean_kubernetes_cluster" "main" {
 output "kubeconfig" {
   value = digitalocean_kubernetes_cluster.main.kube_config
 }
+
