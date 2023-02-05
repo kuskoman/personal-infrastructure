@@ -14,4 +14,5 @@ module "nameservers" {
   main_domain          = var.main_domain
   cloudflare_api_token = var.cloudflare_api_token
   ingress_lb_ip        = var.ingress_lb_ip
+  cloudflare_zone_id   = var.cloudflare_zone_id
 }
