@@ -73,5 +73,5 @@ jobs:
       - name: Save kubeconfig
         working-directory: terraform
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ env.GH_PAT }}
         run: SECRET_BODY=$(terraform output kubeconfig | grep -V EOT) gh secret set KUBECONFIG -b "$SECRET_BODY"
