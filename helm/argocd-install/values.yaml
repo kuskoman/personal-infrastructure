@@ -1,2 +1,60 @@
 argo-cd:
   enabled: true
+  server:
+    configEnabled: true
+    config:
+      repositories: |
+        - name: argo-helm
+          type: helm
+          url: https://argoproj.github.io/argo-helm
+    additionalApplications:
+      - name: argocd
+        namespace: argocd
+        destination:
+          namespace: argocd
+          server: https://kubernetes.default.svc
+        project: argocd
+        source:
+          helm:
+            version: v3
+            valueFiles:
+              - values.yaml
+          path: helm/argocd-install
+          repoURL: https://github.com/kuskoman/personal-infrastructure.git
+          targetRevision: HEAD
+        syncPolicy:
+          syncOptions:
+            - CreateNamespace=true
+      # - name: argocd-apps
+      #   namespace: argocd
+      #   destination:
+      #     namespace: argocd
+      #     server: https://kubernetes.default.svc
+      #   project: argocd
+      #   source:
+      #     path: argocd-apps
+      #     repoURL: https://github.com/kuskoman/personal-infrastructure.git
+      #     targetRevision: HEAD
+      #     directory:
+      #       recurse: true
+      #       jsonnet: {}
+      #   syncPolicy:
+      #     automated:
+      #       selfHeal: true
+      #       prune: true
+    additionalProjects:
+      - name: argocd
+        namespace: argocd
+        additionalLabels: {}
+        additionalAnnotations: {}
+        description: Argocd Project
+        sourceRepos:
+          - "*"
+        destinations:
+          - namespace: argocd
+            server: https://kubernetes.default.svc
+        clusterResourceWhitelist:
+          - group: "*"
+            kind: "*"
+        orphanedResources:
+          warn: false
