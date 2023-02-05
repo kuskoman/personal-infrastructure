@@ -46,18 +46,3 @@ jobs:
         working-directory: terraform
 
   # todo: add job for setting kubeconfig
-
-  argocd:
-    needs:
-      - terraform
-
-    runs-on: ubuntu-latest
-    environment: production
-
-    defaults:
-      run:
-        shell: bash
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
