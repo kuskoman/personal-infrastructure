@@ -18,8 +18,14 @@ spec:
       values: |
         controller:
           config:
-            use-forwarded-headers: "true"
             use-proxy-protocol: "true"
+
+          service:
+            externalTrafficPolicy: "Local"
+            annotations:
+              # https://www.digitalocean.com/docs/kubernetes/how-to/configure-load-balancers/
+              # https://github.com/digitalocean/digitalocean-cloud-controller-manager/blob/master/docs/controllers/services/annotations.md
+              service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
