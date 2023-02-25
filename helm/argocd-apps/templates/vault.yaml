@@ -20,6 +20,8 @@ spec:
   syncPolicy:
     automated:
       selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
     retry:
       limit: 5
       backoff:
