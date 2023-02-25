@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hashicorp-utils
+  namespace: argocd
+  targetNamespace: hashicorp
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: hashicorp-utils
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/kuskoman/personal-infrastructure.git
+    targetRevision: HEAD
+    path: k8s/hashicorp-utils
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cert-manager
+  syncPolicy:
+    automated:
+      selfHeal: true
