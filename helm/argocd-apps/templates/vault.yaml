@@ -28,7 +28,7 @@ spec:
                 paths:
                   - /
             tls:
-              - secretName: vault-tls
+              - secretName: hashicorp-tls
                 hosts:
                   - vault.surdej.me
   destination:
