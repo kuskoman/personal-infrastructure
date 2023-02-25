@@ -14,6 +14,12 @@ spec:
     repoURL: https://kubernetes.github.io/ingress-nginx
     chart: ingress-nginx
     targetRevision: 4.4.2
+    helm:
+      values: |
+        controller:
+          config:
+            use-forwarded-headers: "true"
+            use-proxy-protocol: "true"
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx

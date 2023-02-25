@@ -114,3 +114,6 @@ secret.tfvars
 *.tfstate
 *.tfstate.*
 *.lock.info
+
+# Helm debug manifest
+_debug.yml
