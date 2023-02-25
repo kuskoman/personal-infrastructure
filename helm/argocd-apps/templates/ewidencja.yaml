@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ewidencja-czasu-pracy
+  namespace: argocd
+  targetNamespace: ewidencja-czasu-pracy
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: ewidencja-czasu-pracy
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/kuskoman/ewidencja-czasu-pracy-clockify.git
+    targetRevision: HEAD
+    path: chart
+    helm:
+      releaseName: ewidencja-czasu-pracy
+      values: |
+        certificate:
+          enabled: false
+        frontend:
+          ingress:
+            host: clockify.surdej.me
+        backend:
+          ingress:
+            host: clockify-api.surdej.me
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ewidencja-czasu-pracy
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
