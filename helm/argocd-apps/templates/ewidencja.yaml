@@ -18,7 +18,8 @@ spec:
       releaseName: ewidencja-czasu-pracy
       values: |
         certificate:
-          enabled: false
+          enabled: true
+          issuerName: http01-clusterissuer
         frontend:
           ingress:
             host: clockify.surdej.me
