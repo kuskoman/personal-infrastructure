@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: le-clusterissuer
+  namespace: argocd
+  targetNamespace: le-clusterissuer
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: le-clusterissuer
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/kuskoman/personal-infrastructure.git
+    targetRevision: HEAD
+    path: k8s/clusterissuer
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cert-manager
+  syncPolicy:
+    automated:
+      selfHeal: true
