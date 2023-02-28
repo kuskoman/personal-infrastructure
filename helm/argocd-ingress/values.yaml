@@ -1,0 +1,11 @@
+enabled: true
+host: argocd.surdej.me
+whitelist:
+  enabled: true
+  sourceRanges:
+    - 78.11.197.6/32
+tls:
+  enabled: true
+  issuer:
+    kind: ClusterIssuer
+    name: http01-prod-clusterissuer
