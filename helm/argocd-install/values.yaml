@@ -55,4 +55,4 @@ argocdIngress:
     enabled: true
     issuer:
       kind: ClusterIssuer
-      name: http01-clusterissuer
+      name: http01-prod-clusterissuer

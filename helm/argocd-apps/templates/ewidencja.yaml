@@ -19,7 +19,7 @@ spec:
       values: |
         certificate:
           enabled: true
-          issuerName: http01-clusterissuer
+          issuerName: http01-prod-clusterissuer
         frontend:
           ingress:
             host: clockify.surdej.me

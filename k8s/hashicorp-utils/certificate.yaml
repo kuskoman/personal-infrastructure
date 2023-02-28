@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: hashicorp-tls
   issuerRef:
-    name: http01-clusterissuer
+    name: http01-prod-clusterissuer
     kind: "ClusterIssuer"
     group: "cert-manager.io"
   dnsNames:
