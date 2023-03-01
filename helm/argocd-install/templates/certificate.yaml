@@ -1,0 +1,17 @@
+{{- with .Values.argoingress -}}{{- if .enabled -}}
+{{- if .tls.enabled }}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-server-certificate
+spec:
+  secretName: {{ default "argocd-tls" .tls.secretName }}
+  issuerRef:
+    name: {{ required "you must provide tls.issuer.name" .tls.issuer.name }}
+    kind: {{ default "ClusterIssuer" .tls.issuer.kind }}
+    group: {{ default "cert-manager.io" .tls.issuer.group }}
+  dnsNames:
+    - {{ .host }}
+{{- end -}}
+{{- end -}}{{- end -}}
