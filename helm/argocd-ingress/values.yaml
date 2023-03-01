@@ -8,4 +8,4 @@ tls:
   enabled: true
   issuer:
     kind: ClusterIssuer
-    name: http01-prod-clusterissuer
+    name: dns01-prod-clusterissuer
